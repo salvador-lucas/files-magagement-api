@@ -1,0 +1,18 @@
+FROM node:16.13.0
+
+WORKDIR /app
+ARG STAGE
+
+ENV STAGE=$STAGE
+
+ADD package.json /app/
+ADD package-lock.json /app/
+COPY .env ./.env
+RUN npm install
+RUN npm uninstall bcrypt
+RUN npm install bcrypt
+ADD . /app/
+RUN npm run build
+ENV NODE_ENV=$STAGE
+EXPOSE 8080
+CMD ["node", "./dist/server.js"]
