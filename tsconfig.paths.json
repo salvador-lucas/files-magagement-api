@@ -1,0 +1,23 @@
+ {
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "~api": ["./api"],
+      "~api/*": ["./api/*"],
+      "~config": ["./config"],
+      "~config/*": ["./config/*"],
+      "~constants": ["./constants"],
+      "~constants/*": ["./constants/*"],
+      "~db": ["./db"],
+      "~db/*": ["./db/*"],
+      "~loaders": ["./loaders"],
+      "~loaders/*": ["./loaders/*"],
+      "~routes": ["./api/routes"],
+      "~routes/*": ["./api/routes/*"],
+      "~tests": ["tests"],
+      "~tests/*": ["tests/*"],
+      "~utils": ["./utils"],
+      "~utils/*": ["./utils/*"]
+    }
+  }
+}

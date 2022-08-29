@@ -1,0 +1,91 @@
+{
+  "name": "files-management-api",
+  "version": "1.0.0",
+  "description": "flies management api",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && tsc -p ./tsconfig.build.json",
+    "start": "node dist/server.js",
+    "clean": "rm -rf ./dist && mkdir dist",
+    "dev": "tsc-watch -p ./tsconfig.build.json --onSuccess \"node ./dist/server.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-check": "eslint '*/**/*.{js,ts,tsx}' --quiet",
+    "lint-fix": "eslint '*/**/*.{js,ts,tsx}' --fix",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --write",
+      "eslint --fix src/",
+      "git add"
+    ]
+  },
+  "_moduleAliases": {
+    "~api": "dist/api",
+    "~config": "dist/config",
+    "~constants": "dist/constants",
+    "~db": "dist/db",
+    "~libs": "dist/libs",
+    "~loaders": "dist/loaders",
+    "~routes": "dist/api/routes",
+    "~utils": "dist/utils"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salvador-lucas/files-management-api.git"
+  },
+  "author": "lucas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salvador-lucas/files-management-api/issues"
+  },
+  "homepage": "https://github.com/salvador-lucas/files-management-api#readme",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "ajv-errors": "^3.0.0",
+    "ajv-formats": "^2.1.1",
+    "ajv-keywords": "^5.1.0",
+    "aws-sdk": "^2.1179.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "luxon": "^3.0.1",
+    "mongoose": "^6.4.4",
+    "object-inspect": "^1.12.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@types/ajv": "^1.0.0",
+    "@types/ajv-errors": "^2.0.1",
+    "@types/ajv-keywords": "^3.5.0",
+    "@types/bcrypt": "^5.0.0",
+    "@types/body-parser": "^1.19.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/helmet": "^4.0.0",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/lodash": "^4.14.184",
+    "@types/luxon": "^3.0.0",
+    "@types/mongoose": "^5.11.97",
+    "@types/object-inspect": "^1.8.1",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.3.7",
+    "module-alias": "^2.2.2",
+    "prettier": "^2.7.1",
+    "prettier-eslint": "^15.0.1",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.4"
+  }
+}
